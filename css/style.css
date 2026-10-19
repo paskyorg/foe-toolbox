@@ -1,0 +1,187 @@
+/* ==========================================================================
+   FoE Toolbox - Estilos unificados
+   ========================================================================== */
+
+/* Variables de interfaz */
+:root {
+  --foe-gold: #c99c37;
+  --foe-gold-light: #e0b84c;
+  --foe-bg-dark: #181512;
+  --foe-bg-panel: #241e17;
+  --foe-border: #6d5427;
+  --foe-success: #2ecc71;
+  --foe-danger: #e74c3c;
+  --foe-text: #f0e6d2;
+  --foe-text-muted: #9e9689;
+}
+
+/* 1. Panel de Control Flotante */
+#foe-toolbox-panel {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 320px;
+  background: var(--foe-bg-panel);
+  border: 2px solid var(--foe-gold);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.85);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--foe-text);
+  font-size: 12px;
+  z-index: 100000;
+  user-select: none;
+}
+
+#foe-toolbox-header {
+  background: linear-gradient(180deg, #443521 0%, #261c11 100%);
+  padding: 8px 12px;
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--foe-border);
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+#foe-toolbox-header .title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--foe-gold-light);
+}
+
+#foe-toolbox-header .header-btns button {
+  background: none;
+  border: none;
+  color: var(--foe-text-muted);
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0 4px;
+}
+#foe-toolbox-header .header-btns button:hover {
+  color: #fff;
+}
+
+#foe-toolbox-body {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Filas de interruptores */
+.foe-tool-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(109, 84, 39, 0.25);
+}
+
+.foe-tool-row:last-child {
+  border-bottom: none;
+}
+
+.foe-tool-name {
+  font-weight: 500;
+}
+
+/* Switch Toggle minimalista */
+.foe-switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+.foe-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.foe-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #3a332a;
+  transition: .3s;
+  border-radius: 20px;
+  border: 1px solid #5a4b37;
+}
+.foe-slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #bbb;
+  transition: .3s;
+  border-radius: 50%;
+}
+.foe-switch input:checked + .foe-slider {
+  background-color: var(--foe-gold);
+  border-color: var(--foe-gold-light);
+}
+.foe-switch input:checked + .foe-slider:before {
+  transform: translateX(16px);
+  background-color: #fff;
+}
+
+/* 2. Zona de Mensajes y Logs */
+#foe-toolbox-log-header {
+  font-size: 11px;
+  color: var(--foe-gold-light);
+  font-weight: bold;
+  margin-top: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+#foe-toolbox-log {
+  background: var(--foe-bg-dark);
+  border: 1px solid var(--foe-border);
+  border-radius: 4px;
+  height: 80px;
+  overflow-y: auto;
+  padding: 6px;
+  font-family: monospace;
+  font-size: 11px;
+  color: #55efc4;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.log-entry {
+  line-height: 1.3;
+  word-break: break-word;
+}
+.log-warn { color: #ffeaa7; }
+.log-err  { color: #ff7675; }
+
+/* 3. Contadores en barra superior */
+#fh-custom-quest-tracker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.foe-tracker-card {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 3px;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+}
+.foe-tracker-card.pending {
+  background: rgba(30, 24, 14, 0.75);
+  border: 1px solid var(--foe-gold);
+  color: #ffeb9c;
+}
+.foe-tracker-card.ready {
+  background: rgba(20, 80, 30, 0.75);
+  border: 1px solid var(--foe-success);
+  color: #7bf388;
+}

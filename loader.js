@@ -1,0 +1,1 @@
+javascript:(function(){var s=document.createElement("script");s.src="https://TU_USUARIO.github.io/foe-toolbox/bundle.js?v="+Date.now();document.head.appendChild(s);})();
