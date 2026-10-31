@@ -129,7 +129,7 @@
                 modificado = true;
                 t.description = "Hacked!";
                 t.headline = "";
-                if (JSON.parse(FH.Storage.getItem('Recurring')).filter.includes(t.id)) {
+                if (JSON.parse(FH.Storage.getItem('Recurring')).filter.includes(String(t.id))) {
                     t.description = "Diamantes recogidos!";
                 }
 
