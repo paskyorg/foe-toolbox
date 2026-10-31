@@ -100,7 +100,13 @@
         933145: [2],
         933147: [2, 4],
         933151: [2],
-        933152: [2]
+        933152: [2],
+        // Misiones de Titán
+        933165: [2],
+        933167: [2,4],
+        933170: [2],
+        933171: [2],
+        933172: [2]
     };
     var QUESTS_TO_HIDE = [17400];
 
@@ -123,6 +129,9 @@
                 modificado = true;
                 t.description = "Hacked!";
                 t.headline = "";
+                if (JSON.parse(FH.Storage.getItem('Recurring')).filter.includes(t.id) {
+                    t.description = "Diamantes recogidos!";
+                }
 
                 if (Array.isArray(t.successConditions)) {
                     t.successConditions.forEach(function(c) { c.hint = ""; });
